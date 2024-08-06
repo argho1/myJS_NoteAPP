@@ -11,7 +11,6 @@ export default class NotesAPI {
         const notes = NotesAPI.getAllNotes();
         const existing = notes.find(note => note.id == noteToSave.id)
 
-        
         if (existing) {
             existing.title = noteToSave.title;
             existing.body = noteToSave.body;
@@ -30,5 +29,16 @@ export default class NotesAPI {
         const newNotes = notes.filter(note => note.id != id);
 
         localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
+    }
+
+    updateActiveNote(note) {
+        this.root.querySelector(".notes__title").value = note.title;
+        this.root.querySelector(".notes__body").value = note.body;
+
+        this.root.querySelector(".notes__list-item").forEach(noteListItem => {
+            noteListItem.classList.remove("notes__list-item--selected");
+        });
+
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("")
     }
 }
