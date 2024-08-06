@@ -33,7 +33,7 @@ export default class NotesView {
             });
         });
 
-        this.updateNotePreviewVisiblity(false);
+        this.updateNotePreviewVisibility(false);
     }
 
 
@@ -94,7 +94,7 @@ export default class NotesView {
         this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected")
     }
 
-    updateNotePreviewVisiblity(visible) {
-        this.root.querySelector(".note__preview").style.visiblity = visible ? "visible" : "hidden";
+    updateNotePreviewVisibility(visible) {
+        this.root.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
     }
 }

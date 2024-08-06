@@ -23,7 +23,7 @@ export default class App {
     _setNotes(notes) {
         this.notes = notes;
         this.view.updateNoteList(notes);
-        this.view.updateNotePreviewVisiblity(notes.length > 0);
+        this.view.updateNotePreviewVisibility(notes.length > 0);
     }
 
     _setActiveNote(note) {
@@ -33,8 +33,9 @@ export default class App {
 
     _handlers() {
         return {
-            onNoteSelect: notesId => {
-                console.log("Note selected: " + notesId);
+            onNoteSelect: noteId => {
+                const selectedNote = this.notes.find(note => note.id == noteId)
+                this._setActiveNote(selectedNote);
             },
             onNoteAdd: () => {
                 console.log("Note Added");
