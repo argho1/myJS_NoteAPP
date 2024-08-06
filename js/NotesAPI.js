@@ -30,15 +30,4 @@ export default class NotesAPI {
 
         localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
     }
-
-    updateActiveNote(note) {
-        this.root.querySelector(".notes__title").value = note.title;
-        this.root.querySelector(".notes__body").value = note.body;
-
-        this.root.querySelector(".notes__list-item").forEach(noteListItem => {
-            noteListItem.classList.remove("notes__list-item--selected");
-        });
-
-        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("")
-    }
 }
